@@ -22,6 +22,7 @@ const (
 	MainnetAPIURI = "https://api.avax.network"
 	FujiAPIURI    = "https://api.avax-test.network"
 	LocalAPIURI   = "http://localhost:9650"
+	CopycoAPIURI    = "http://localhost:9650"
 
 	fetchLimit = 1024
 )

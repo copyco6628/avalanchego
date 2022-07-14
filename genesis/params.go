@@ -57,6 +57,8 @@ func GetTxFeeConfig(networkID uint32) TxFeeConfig {
 		return FujiParams.TxFeeConfig
 	case constants.LocalID:
 		return LocalParams.TxFeeConfig
+	case constants.CopycoID:
+		return CopycoParams.TxFeeConfig
 	default:
 		return LocalParams.TxFeeConfig
 	}
@@ -70,6 +72,8 @@ func GetStakingConfig(networkID uint32) StakingConfig {
 		return FujiParams.StakingConfig
 	case constants.LocalID:
 		return LocalParams.StakingConfig
+	case constants.CopycoID:
+		return CopycoParams.StakingConfig
 	default:
 		return LocalParams.StakingConfig
 	}

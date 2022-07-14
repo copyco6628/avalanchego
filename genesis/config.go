@@ -153,18 +153,22 @@ var (
 	// LocalConfig is the config that should be used to generate a local
 	// genesis.
 	LocalConfig Config
+
+	CopycoConfig Config
 )
 
 func init() {
 	unparsedMainnetConfig := UnparsedConfig{}
 	unparsedFujiConfig := UnparsedConfig{}
 	unparsedLocalConfig := UnparsedConfig{}
+	unparsedCopycoConfig := UnparsedConfig{}
 
 	errs := wrappers.Errs{}
 	errs.Add(
 		json.Unmarshal(mainnetGenesisConfigJSON, &unparsedMainnetConfig),
 		json.Unmarshal(fujiGenesisConfigJSON, &unparsedFujiConfig),
 		json.Unmarshal(localGenesisConfigJSON, &unparsedLocalConfig),
+		json.Unmarshal(copycoGenesisConfigJSON, &unparsedCopycoConfig),
 	)
 	if errs.Errored() {
 		panic(errs.Err)
@@ -182,6 +186,10 @@ func init() {
 	errs.Add(err)
 	LocalConfig = localConfig
 
+	copycoConfig, err := unparsedCopycoConfig.Parse()
+	errs.Add(err)
+	CopycoConfig = copycoConfig
+
 	if errs.Errored() {
 		panic(errs.Err)
 	}
@@ -195,6 +203,8 @@ func GetConfig(networkID uint32) *Config {
 		return &FujiConfig
 	case constants.LocalID:
 		return &LocalConfig
+	case constants.CopycoID:
+		return &CopycoConfig
 	default:
 		tempConfig := LocalConfig
 		tempConfig.NetworkID = networkID

@@ -18,6 +18,7 @@ const (
 	DenaliID  uint32 = 3
 	EverestID uint32 = 4
 	FujiID    uint32 = 5
+	CopycoID  uint32 = 6
 
 	TestnetID  uint32 = FujiID
 	UnitTestID uint32 = 10
@@ -31,6 +32,7 @@ const (
 	TestnetName  = "testnet"
 	UnitTestName = "testing"
 	LocalName    = "local"
+	CopycoName   = "copyco"
 
 	MainnetHRP  = "avax"
 	CascadeHRP  = "cascade"
@@ -40,6 +42,7 @@ const (
 	UnitTestHRP = "testing"
 	LocalHRP    = "local"
 	FallbackHRP = "custom"
+	CopycoHRP   = "copyco"
 )
 
 // Variables to be exported
@@ -55,6 +58,7 @@ var (
 		FujiID:     FujiName,
 		UnitTestID: UnitTestName,
 		LocalID:    LocalName,
+		CopycoID:   CopycoName,
 	}
 	NetworkNameToNetworkID = map[string]uint32{
 		MainnetName:  MainnetID,
@@ -65,6 +69,7 @@ var (
 		TestnetName:  TestnetID,
 		UnitTestName: UnitTestID,
 		LocalName:    LocalID,
+		CopycoName:   CopycoID,
 	}
 
 	NetworkIDToHRP = map[uint32]string{
@@ -75,6 +80,7 @@ var (
 		FujiID:     FujiHRP,
 		UnitTestID: UnitTestHRP,
 		LocalID:    LocalHRP,
+		CopycoID:   CopycoHRP,
 	}
 	NetworkHRPToNetworkID = map[string]uint32{
 		MainnetHRP:  MainnetID,
@@ -84,6 +90,7 @@ var (
 		FujiHRP:     FujiID,
 		UnitTestHRP: UnitTestID,
 		LocalHRP:    LocalID,
+		CopycoHRP:   CopycoID,
 	}
 
 	ValidNetworkPrefix = "network-"
